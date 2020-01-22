@@ -5,6 +5,7 @@ resource "azurerm_sql_server" "this" {
   version                      = var.version
   administrator_login          = var.admin_login
   administrator_login_password = var.admin_password
+  tags                         = var.tags
 }
 
 resource "azurerm_sql_firewall_rule" "this" {
@@ -23,4 +24,5 @@ resource "azurerm_sql_database" "this" {
   server_name                      = azurerm_sql_server.main.name
   edition                          = var.database_edition
   requested_service_objective_name = var.requested_service_objective_name
+  tags                             = var.tags
 }

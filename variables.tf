@@ -58,7 +58,28 @@ variable "edition" {
   type        = string
 }
 
+variable "db_max_size" {
+  description = "(Optional) The maximum size that the database can grow to. Applies only if create_mode is Default. "
+  type        = string
+  default     = ""
+}
+
+variable "create_mode" {
+  description = "(Optional) Specifies how to create the database. Valid values are: Default, Copy, OnlineSecondary, NonReadableSecondary, PointInTimeRestore, Recovery, Restore or RestoreLongTermRetentionBackup. Must be Default to create a new database. Defaults to Default."
+  type        = strint
+  default     = "Default"
+}
+
 variable "requested_service_objective_name" {
   description = "(Optional) Use requested_service_objective_name or requested_service_objective_id to set the performance level for the database. Valid values are: S0, S1, S2, S3, P1, P2, P4, P6, P11 and ElasticPool."
   default     = "S0"
+}
+
+variable "tags" {
+  description = "Default tags to apply on the resource."
+  type        = map(string)
+
+  default = {
+    terraform = "true"
+  }
 }
