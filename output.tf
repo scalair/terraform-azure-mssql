@@ -1,9 +1,14 @@
 output "sqlserver_name" {
   description = "SQL Server server name"
-  value       = azurerm_sql_server.this.name
+  value       = azurerm_sql_server.this.fully_qualified_domain_name
 }
 
-output "sqlserver_administrator_login" {
-  description = "Username for SQL Server admin user."
-  value       = "${azurerm_sql_server.this.administrator_login}"
+output "sqlserver_name" {
+  description = "SQL Server ID"
+  value       = azurerm_sql_server.this.id
+}
+
+output "sql_database_id" {
+  description = "SQL Database ID"
+  value       = azurerm_sql_database.this.id
 }
