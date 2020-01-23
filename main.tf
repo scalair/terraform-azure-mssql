@@ -24,5 +24,6 @@ resource "azurerm_sql_database" "this" {
   server_name                      = azurerm_sql_server.main.name
   edition                          = var.database_edition
   requested_service_objective_name = var.requested_service_objective_name
+  max_size_bytes                   = var.db_max_size
   tags                             = var.tags
 }
