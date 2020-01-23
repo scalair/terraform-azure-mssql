@@ -3,12 +3,12 @@ output "sqlserver_name" {
   value       = azurerm_sql_server.this.fully_qualified_domain_name
 }
 
-output "sqlserver_name" {
+output "sqlserver_id" {
   description = "SQL Server ID"
   value       = azurerm_sql_server.this.id
 }
 
-output "sql_database_id" {
+output "sqldatabase_id" {
   description = "SQL Database ID"
-  value       = azurerm_sql_database.this.id
+  value       = azurerm_sql_database.this.*.id
 }
